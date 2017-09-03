@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+echo "Running Project Level NPM"
+tools/node-v6.11.2-linux-x64/bin/node tools/node-v6.11.2-linux-x64/bin/npm "$@"
