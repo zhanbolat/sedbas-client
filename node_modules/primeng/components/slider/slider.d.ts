@@ -48,11 +48,6 @@ export declare class Slider implements AfterViewInit, OnDestroy, ControlValueAcc
     registerOnChange(fn: Function): void;
     registerOnTouched(fn: Function): void;
     setDisabledState(val: boolean): void;
-    readonly rangeStartLeft: string;
-    readonly rangeStartBottom: string;
-    readonly rangeEndLeft: string;
-    readonly rangeEndBottom: string;
-    isVertical(): boolean;
     updateDomData(): void;
     calculateHandleValue(event: any): number;
     updateHandleValue(): void;

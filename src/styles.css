@@ -13,3 +13,12 @@ h2, h3 {
 body {
     margin: 2em;
 }
+
+.logo {
+    background-image: url('logo-horizontal.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+    width: 360px;
+    height: 50px;
+}

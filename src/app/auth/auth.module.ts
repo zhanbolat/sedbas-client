@@ -6,7 +6,6 @@ import {FormsModule} from '@angular/forms';
 
 import {AuthComponent} from './components/auth/auth.component';
 import {LoginFormComponent} from './components/login-form/login-form.component';
-import {RegisterFormComponent} from './components/register-form/register-form.component';
 
 import {TabViewModule} from 'primeng/components/tabview/tabview';
 import {ButtonModule} from 'primeng/components/button/button';
@@ -26,8 +25,9 @@ import {HttpModule} from '@angular/http';
         GrowlModule
     ],
     providers: [AuthService, AuthGuard],
-    declarations: [AuthComponent, LoginFormComponent, RegisterFormComponent],
-    exports: [AuthComponent]
+    declarations: [AuthComponent, LoginFormComponent],
+    exports: [AuthComponent, LoginFormComponent]
+    // schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AuthModule {
 }

@@ -17,7 +17,6 @@ export declare class Listbox implements AfterContentInit, ControlValueAccessor {
     filter: boolean;
     metaKeySelection: boolean;
     dataKey: string;
-    showToggleAll: boolean;
     onChange: EventEmitter<any>;
     onDblClick: EventEmitter<any>;
     templates: QueryList<any>;

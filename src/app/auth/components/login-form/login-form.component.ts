@@ -21,6 +21,7 @@ export class LoginFormComponent implements OnInit {
 
     ngOnInit(): void {
         this.model = new User();
+        console.log("LoginFormComponent called");
     }
 
     onSubmit(): void {
@@ -29,6 +30,7 @@ export class LoginFormComponent implements OnInit {
             .subscribe(isLoggedIn => {
                 if (isLoggedIn) {
                     this.router.navigate(['/home']);
+                    // RouterModule.forRoot([{ path: "/home", component: HomeComponent}]);
                 } else {
                     this.messages.push({severity: 'error', summary: 'Email/password incorrect!'});
                 }

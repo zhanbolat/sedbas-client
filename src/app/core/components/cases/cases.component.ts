@@ -5,6 +5,7 @@ import {MenuItem} from 'primeng/primeng';
 
 
 @Component({
+    selector: 'cases',
     templateUrl: './cases.component.html'
 })
 export class CasesComponent {

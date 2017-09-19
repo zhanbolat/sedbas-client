@@ -76,9 +76,8 @@ export declare class Schedule implements DoCheck, OnDestroy, OnInit, OnChanges, 
     incrementDate(duration: any): void;
     changeView(viewName: string): void;
     getDate(): any;
+    findEvent(id: string): any;
     updateEvent(event: any): void;
-    _findEvent(id: string): any;
-    _updateEvent(event: any): void;
 }
 export declare class ScheduleModule {
 }

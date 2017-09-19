@@ -1,9 +1,42 @@
+<p-growl [value]="msgs"></p-growl>
+<div class="ui-g">
+    <div class="ui-g-12 ui-g-nopad">
+        <div style="vertical-align: middle;">
+            HEADER LOGO IS HERE
+            <!--<div class="logo"></div>-->
+            <div style="float: right">
+                <!--<button pButton label="Logout" icon="fa-sign-out"></button>-->
+                <p-splitButton [label]="username" icon="fa-check" [model]="splitBtnItems"></p-splitButton>
+            </div>
+        </div>
+    </div>
+    <div class="ui-g-12 ui-g-nopad">
+            <div class="ui-g-3">
+                <p-menu [model]="leftMenuItems"></p-menu>
+            </div>
+            <div class="ui-g-7">
+                <p-tabMenu class="ui-tabmenu" [model]="items"></p-tabMenu>
+                <div id="d">
+                    <div *ngIf="activeItem === items[0]"><tasks></tasks></div>
+                    <div *ngIf="activeItem === items[1]"><cases></cases></div>
+                    <div *ngIf="activeItem === items[2]"><processes></processes></div>
+                </div>
+                <!--<router-outlet></router-outlet>-->
+            </div>
+            <div class="ui-g-2">
+                <p-panel header="InfoPanel">
+                    InfoContent
+                </p-panel>
+            </div>
+    </div>
+    <div class="ui-g-12">
+        <div style="text-align: center; vertical-align: middle;">
+            Footer
+        </div>
+    </div>
+</div>
 
-<h3>Welcome!</h3>
-
-<p-tabMenu class="ui-tabmenu" [model]="items"></p-tabMenu>
 
 
 
 
-<button pButton type="button" (click)="logOut()" label="Log Out"></button>
