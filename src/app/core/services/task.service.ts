@@ -7,7 +7,7 @@ import { ConfigService } from '../../config/configs'
 import { RestApiService } from '../../rest-api/rest.api.service'
 import { SearchParams } from "../model/search.params";
 import {DataMappingInterface} from "../../rest-api/data.mapping.interface";
-import {TaskMapping} from "../../rest-api/task.mapping";
+import {TaskMapping} from "../mappings/task.mapping";
 
 @Injectable()
 export class TaskService extends RestApiService {

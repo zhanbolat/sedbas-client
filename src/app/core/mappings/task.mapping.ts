@@ -1,7 +1,7 @@
 import { Response } from '@angular/http'
 
-import { DataMappingInterface } from './data.mapping.interface'
-import { Task } from '../core/model/task'
+import { DataMappingInterface } from '../../rest-api/data.mapping.interface'
+import { Task } from '../model/task'
 
 export class TaskMapping implements DataMappingInterface {
 

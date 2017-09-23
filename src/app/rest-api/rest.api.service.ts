@@ -1,16 +1,10 @@
-// ZaakgerichtWerken.nu Bonita Rest Api Service
-// --------------------------------------------------------------------------
-//
-// based on http://documentation.bonitasoft.com/?page=_rest-api
-//
-//
+
 import { Injectable } from '@angular/core'
 import { Response } from '@angular/http'
 
 import { Observable } from 'rxjs/Observable'
 import 'rxjs/add/observable/throw'
 
-// import { ConfigService } from '../config/configs'
 import { DataMappingInterface } from './data.mapping.interface'
 import { DataMapping } from './data.mapping'
 import { ResponseModel } from './response'

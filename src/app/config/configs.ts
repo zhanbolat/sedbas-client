@@ -49,7 +49,7 @@ export class ConfigService {
 
         if (location.hostname == 'localhost') {
             // local development server configuration (Bonita Studio with Angular JIT)
-            this.hostUrl = 'http://localhost:8080'
+            this.hostUrl = 'http://localhost:8081'
         } else {
             // external test or production server configuration (Bonita Platform with AOT WAR deployment)
             this.hostUrl = location.origin
