@@ -14,20 +14,40 @@
             <div class="ui-g-3">
                 <p-menu [model]="leftMenuItems"></p-menu>
             </div>
-            <div class="ui-g-7">
+            <div class="ui-g-9">
                 <p-tabMenu class="ui-tabmenu" [model]="items"></p-tabMenu>
-                <div id="d">
-                    <div *ngIf="activeItem === items[0]"><tasks></tasks></div>
-                    <div *ngIf="activeItem === items[1]"><cases></cases></div>
-                    <div *ngIf="activeItem === items[2]"><processes></processes></div>
+                <div>
+                    <div *ngIf="activeItem === items[0]">
+                        <div class="ui-g-8">
+                            <tasks></tasks>
+                        </div>
+                        <div class="ui-g-4">
+                            <p-panel header="InfoPanel">
+                                InfoContent
+                            </p-panel>
+                        </div>
+                    </div>
+                    <div *ngIf="activeItem === items[1]">
+                        <div class="ui-g-8">
+                            <cases></cases>
+                        </div>
+                        <div class="ui-g-4">
+                            <p-panel header="InfoPanel">
+                                InfoContent
+                            </p-panel>
+                        </div>
+                    </div>
+                    <div *ngIf="activeItem === items[2]">
+                        <processes></processes>
+                    </div>
                 </div>
                 <!--<router-outlet></router-outlet>-->
             </div>
-            <div class="ui-g-2">
-                <p-panel header="InfoPanel">
-                    InfoContent
-                </p-panel>
-            </div>
+            <!--<div class="ui-g-2">-->
+                <!--<p-panel header="InfoPanel">-->
+                    <!--InfoContent-->
+                <!--</p-panel>-->
+            <!--</div>-->
     </div>
     <div class="ui-g-12">
         <div style="text-align: center; vertical-align: middle;">

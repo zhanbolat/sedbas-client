@@ -1,12 +1,17 @@
 import {NgModule} from '@angular/core';
 import {ProcessesComponent} from './processes.component';
-import {ButtonModule} from 'primeng/components/button/button';
-import {TabMenuModule} from 'primeng/primeng';
+// import {ButtonModule} from 'primeng/components/button/button';
+import {DataTableModule, DialogModule, GrowlModule, PanelModule, SharedModule, TabMenuModule} from 'primeng/primeng';
+import {CommonModule} from "@angular/common";
 
 @NgModule({
     imports: [
-        ButtonModule,
-        TabMenuModule],
+        CommonModule,
+        DataTableModule,
+        SharedModule,
+        DialogModule,
+        PanelModule,
+        GrowlModule],
     declarations: [ProcessesComponent],
     exports: [ProcessesComponent]
 })

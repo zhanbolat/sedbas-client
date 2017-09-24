@@ -34,7 +34,7 @@ export class HomeComponent {
                 this.setItemState(this.items[2]);
             }}
         ];
-        // this.activeItem = this.items[0];
+        this.activeItem = this.items[0];
 
         this.leftMenuItems = [{
                 label: 'Текущие (Активные)',

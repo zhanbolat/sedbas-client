@@ -43,7 +43,7 @@ export class ProcessService extends RestApiService {
         return this.resourceUrl + '?' + searchParms.getUrlEncondedParms()
     }
 
-    getProcessDefinition(processDefinitionId: string): Observable<ProcessDefinitionMapping> {
+    getProcessDefinition(processDefinitionId: string): Observable<ProcessDefinition> {
         let processDefinitionMapping: ProcessDefinitionMapping = new ProcessDefinitionMapping()
         return this.http.get(this.resourceUrl + '/' + processDefinitionId, this.configService.options)
             .map(processDefinitionMapping.mapResponse)

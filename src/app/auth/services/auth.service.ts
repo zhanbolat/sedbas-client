@@ -6,13 +6,27 @@ import {Observable} from 'rxjs/Observable';
 
 import {User} from '../../core/model/user';
 import {API_URL} from '../../app.component';
+import {Session} from "../model/session";
+import {DataMappingInterface} from "../../rest-api/data.mapping.interface";
+import {SessionMapping} from "../session.mapping";
+import {RestApiService} from "../../rest-api/rest.api.service";
+import {ConfigService} from "../../config/configs";
 
 @Injectable()
-export class AuthService {
-
+export class AuthService extends RestApiService {
+    private readonly LOGIN_SERVICE_PATH: string = '/loginservice'
+    private readonly CURRENT_SESSION_RESOURCE_PATH = '/system/session/unusedid'
     isLoggedIn = false;
 
-    constructor(private http: Http) {
+    constructor(private configService: ConfigService,
+                private http: Http) {
+        super()
+
+        // initialize authentication using current session
+        this.getCurrentSession()
+            .subscribe(
+                currentSession => configService.session = currentSession
+            )
     }
 
     private static handleError(error: any) {
@@ -39,17 +53,16 @@ export class AuthService {
             .catch(AuthService.handleError);
     }
 
+    getCurrentSession(): Observable<Session> {
+        let sessionMapping: DataMappingInterface = new SessionMapping()
+        return this.http.get(this.configService.apiUrl + this.CURRENT_SESSION_RESOURCE_PATH, this.configService.options)
+            .map(sessionMapping.mapResponse)
+            .catch(this.handleResponseError)
+    }
+
     logOut(): Observable<boolean> {
         this.isLoggedIn = !this.isLoggedIn;
         return Observable.of(false);
     }
-
-    register(user: User): Observable<boolean> {
-        return this.http.post(API_URL + '/register', user)
-            .map(response => response.json() as User)
-            .map(currentUser => !User.isNull(currentUser))
-            .catch(AuthService.handleError);
-    }
-
 
 }
