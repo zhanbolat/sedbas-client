@@ -3,6 +3,7 @@ import {ProcessService} from "../../services/process.service";
 import {ProcessDefinition} from "../../model/process.definition";
 import {SearchParams} from "../../model/search.params";
 import {Message} from "primeng/primeng";
+import {AuthService} from "../../../auth/services/auth.service";
 
 
 @Component({
@@ -11,7 +12,8 @@ import {Message} from "primeng/primeng";
 })
 export class ProcessesComponent {
 
-    constructor(private processService: ProcessService) {
+    constructor(private processService: ProcessService,
+                private authService: AuthService) {
     }
 
     // items: MenuItem[];
@@ -21,9 +23,21 @@ export class ProcessesComponent {
     selectedProcess: ProcessDefinition;
     selectedProcessInfo: ProcessDefinition;
     dialogVisible: boolean;
+    user_id: string;
 
     ngOnInit() {
-        this.processService.searchProcessDefinitions(new SearchParams(0,100))
+        this.user_id = "1";
+        this.authService.getCurrentSession().subscribe(session => {
+            this.user_id = session.user_id;
+        });
+
+        var order = 'displayName ASC';
+        var query = null;
+        var filters = ['user_id='+this.user_id];
+        var deploys = null;
+        var searchParams = new SearchParams(0, 100, order, query, filters, deploys);
+
+        this.processService.searchProcessDefinitions(searchParams)
             .subscribe(processes => { this.processes = processes; });
         // this.processes = [new ProcessDefinition({"displayDescription":"","deploymentDate":"2017-08-25 10:58:20.172","displayName":"My first process","name":"My first process","description":"","deployedBy":"4","id":"6342417351716212978","activationState":"DISABLED","version":"1.0","configurationState":"RESOLVED","last_update_date":"2017-08-25 10:58:20.364","actorinitiatorid":"1"}),
         //     new ProcessDefinition({"displayDescription":"","deploymentDate":"2017-08-25 10:58:20.172","displayName":"My first process","name":"My first process","description":"","deployedBy":"4","id":"6342417351716212979","activationState":"DISABLED","version":"1.0","configurationState":"RESOLVED","last_update_date":"2017-08-25 10:58:20.364","actorinitiatorid":"1"}),

@@ -10,6 +10,7 @@ import {TasksModule} from '../tasks/tasks.module';
 import {CasesModule} from "../cases/cases.module";
 import {ProcessesModule} from "../processes/processes.module";
 import {CommonModule} from "@angular/common";
+import {ArchievedTasksModule} from "../archievedtasks/archieved.tasks.module";
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import {CommonModule} from "@angular/common";
         SplitButtonModule,
         // HomeModule,
         TasksModule,
+        ArchievedTasksModule,
         CasesModule,
         ProcessesModule,
         GrowlModule,

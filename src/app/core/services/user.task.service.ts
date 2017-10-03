@@ -57,7 +57,6 @@ export class UserTaskService extends RestApiService {
         return this.http.put(putUrl, body, this.configService.sendOptions)
             .map(this.mapSuccessResponse)
             .catch(this.handleResponseError)
-
     }
 
     executeUserTask(userTaskId: string, contractValues: any): Observable<ResponseModel> {

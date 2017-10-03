@@ -13,7 +13,7 @@ export class Session {
         if (sessionData.tenant) { this.tenant = sessionData.tenant }
         let headers = headerData.toJSON()
         console.log(headers)
-        this.token = headers['X-Bonita-API-Token'][0]
+        // this.token = headers['x-bonita-api-token'][0]
     }
 
     user_id: string
